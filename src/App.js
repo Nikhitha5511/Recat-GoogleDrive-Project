@@ -29,10 +29,10 @@ function App() {
     <>
       {user ? (
         <>
-          <Header />
+          <Header photoURL={user.photoURL}/>
           <div className="App">
             <Sidebar />
-            <Data />
+            <Data photoURL={user.photoURL}/>
           </div>
         </>
       ) : (

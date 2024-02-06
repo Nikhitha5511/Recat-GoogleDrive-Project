@@ -4,7 +4,7 @@ import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AppsIcon from '@material-ui/icons/Apps';
 import { Avatar } from '@material-ui/core';
-const Header=()=>{
+const Header=({ photoURL })=>{
     return(
         <div className='HeaderContainer'>
             <div className='headerLogo'>
@@ -21,7 +21,7 @@ const Header=()=>{
                 <HelpOutlineIcon />
                 <SettingsIcon />
                 <AppsIcon />
-                <Avatar />
+                <Avatar src={photoURL}/>
                 </span>
             </div>
        
