@@ -120,7 +120,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid lightgray;
   height: 40px;
 }
 
@@ -144,7 +143,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid lightgray;
   height: 40px;
   margin-bottom: 120px;
 }
@@ -152,34 +150,59 @@
 .dataHeader.headerLeft{
   display: flex;
   align-items: center;
+  
+}
+.text{
+  font-size: 20px;
+  font-weight: 500;
+}
+.listicon{
+  margin-right: 20px;
+}
+.dataHeader.headerRight{
+  margin-right: 20px;
+
+}
+.headerRight{
+  gap:30px;
 }
 .arrow{
-  margin-left:-740px;
+  margin-left:-820px;
 }
 .dataList{
 display: flex;
 flex-direction: row;
 align-items: center;
-border-bottom: 1px solid #ccc;
+border-bottom: 1px solid #ccc; 
 justify-content: space-between;
 font-size: 16px;
 margin-top: -8px;
 width:100%;
 }
-.space2{
+
+.dataListRow{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc; 
+  margin-top: -7px;
+}
+.dynamicdata{
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-around;
-  gap:30px;
-  line-height: 1;
-
+  align-items: center;
+  gap:70px;
+  margin-right: 200px;
 }
 .space1{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap:54px;
+  margin-right: 190px;
   
  
 }
@@ -274,21 +297,51 @@ hr{
   background-color: white;
   border: 1px solid #ccc;
   padding: 10px;
+  margin: 10px;
 }
-
+.seconddiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 .response{
   background: none;
   border:none;
   font-size: 14px;
 }
 
-.iconData {
-  display: none;
-  
-
+.dataListRow {
+  position: relative; 
 }
 
-.dataList:hover .iconData {
-  display: block;
-  
+.iconData {
+  display: flex; 
+  position: absolute; 
+  top: 50%; 
+  right: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease; 
+  opacity: 0; 
+  margin-left: auto; 
+}
+.dataListRow:hover .iconData {
+  display: block; 
+  opacity: 1; 
+ 
+}
+.dataListRow:hover{
+  background-color:rgb(240, 239, 239);
+}
+
+.binContainer{
+  display: flex;
+  justify-content: space-between;
+  margin:15px;
+  align-items: center;
+}
+.firstCntainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

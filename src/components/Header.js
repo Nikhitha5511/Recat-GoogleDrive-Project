@@ -21,7 +21,7 @@ const Header=({ photoURL })=>{
                 <HelpOutlineIcon />
                 <SettingsIcon />
                 <AppsIcon />
-                <Avatar src={photoURL}/>
+                <Avatar src={photoURL} />
                 </span>
             </div>
        
