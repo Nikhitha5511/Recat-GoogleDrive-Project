@@ -181,6 +181,8 @@ import 'firebase/storage';
 import { db } from '../Firebase/Firebase';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import firebase from 'firebase/compat/app'; 
+import { Link } from 'react-router-dom';
+
 
 const Sidebar=()=>{
     const popUpRef = useRef(null);
@@ -257,7 +259,7 @@ const Sidebar=()=>{
                     </div>
                     <div className='sidebarOption'>
                         <ScreenShareOutlinedIcon/>
-                        <span>My Drive</span>
+                        <Link to="/drive">  <span>My Drive</span></Link>
                     </div>
                     <div className='sidebarOption'>
                         <DevicesIcon />
@@ -281,7 +283,7 @@ const Sidebar=()=>{
                     </div>
                     <div className='sidebarOption'>
                         <DeleteOutlineOutlinedIcon />
-                        <span>Bin</span>
+                        <Link to="/bin"><span>Bin</span></Link>
                     </div>
                     <div className='sidebarOption'>
                         <CloudQueueIcon />

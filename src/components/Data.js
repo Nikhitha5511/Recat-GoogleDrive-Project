@@ -32,7 +32,38 @@ const Data = ({photoURL}) => {
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
         return new Date(date).toLocaleDateString('en-GB', options);
     }
-
+    // const deleteFile = (id) => {
+    //     db.collection('files').doc(id).delete()
+    //         .then(() => {
+    //             console.log('File deleted successfully');
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error deleting file: ', error);
+    //         });
+    // };
+    const deleteFile = (id) => {
+        const fileRef = db.collection('files').doc(id);
+        fileRef.get().then((doc) => {
+            if (doc.exists) {
+                const fileData = doc.data();
+                fileRef.delete().then(() => {
+                    console.log('File deleted successfully');
+                    db.collection('bin').add(fileData).then(() => {
+                        console.log('File moved to bin successfully');
+                    }).catch((error) => {
+                        console.error('Error moving file to bin: ', error);
+                    });
+                }).catch((error) => {
+                    console.error('Error deleting file: ', error);
+                });
+            } else {
+                console.log('No such document!');
+            }
+        }).catch((error) => {
+            console.error('Error getting document:', error);
+        });
+    };
+    
    
    return (
         <div className='dataContainer'>
@@ -68,7 +99,7 @@ const Data = ({photoURL}) => {
                 <div className='iconData'>
                 <button className='response'><i className="fas fa-arrow-down"></i></button>
                 <button className='response'><i className="fas fa-share-square"></i></button>
-                <button className='response'><i className="fas fa-trash-alt"></i></button>
+                <button onClick={() => deleteFile(file.id)} className='response'><i className="fas fa-trash-alt"></i></button>
                 <button className='response'><i className="far fa-star"></i></button>
             </div>
             </div>

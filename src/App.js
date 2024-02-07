@@ -7,6 +7,9 @@ import { auth, provider } from './Firebase/Firebase';
 import { useState } from 'react';
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Bin from './components/Bin';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,15 +30,21 @@ function App() {
   }
 
   return (
+    <Router>
     <>
      {user ? (
      <>
      <Header photoURL={user.photoURL}/>
      <div className="App">
-     <Sidebar />
-     <Data photoURL={user.photoURL}/>
+     <Sidebar/>
+     <Routes>
+      <Route path="/drive" element={<Data photoURL={user.photoURL} />} />
+      <Route path="/bin" element={<Bin photoURL={user.photoURL} />} />
+      <Route path="/" element={<Navigate to="/drive" />} />
+      </Routes>
+     
      </div>
-     <Bin/>
+     
       </>
      ) : (
      <div className='login'>
@@ -46,7 +55,7 @@ function App() {
      </div>
     )}
      </>
-
+     </Router>
     )
    }
 
